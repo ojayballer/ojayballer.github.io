@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
 
-        /* accent bar */
         body::before {
             content: '';
             display: block;
@@ -30,12 +29,11 @@
             color: #1a1a2e;
             background: #fafafa;
             line-height: 1.6;
-            max-width: 920px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 52px 24px 48px;
         }
 
-        /* ---- HEADER ---- */
         .header {
             display: flex;
             align-items: center;
@@ -84,7 +82,6 @@
             height: 22px;
         }
 
-        /* ---- ABOUT ---- */
         .about-section {
             margin-bottom: 48px;
             font-size: 15px;
@@ -92,7 +89,6 @@
             line-height: 1.7;
         }
 
-        /* ---- SECTION HEADERS ---- */
         h2 {
             font-size: 18px;
             font-weight: 700;
@@ -101,7 +97,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* ---- EXPERIENCE ---- */
         .experience-section {
             margin-bottom: 48px;
         }
@@ -146,7 +141,6 @@
             margin-top: 4px;
         }
 
-        /* ---- PROJECT GRID ---- */
         .project-section {
             margin-bottom: 48px;
         }
@@ -178,7 +172,7 @@
 
         .project-card-img-wrap img {
             width: 100%;
-            height: 145px;
+            height: 190px;
             object-fit: cover;
             display: block;
         }
@@ -236,7 +230,6 @@
             color: #ea580c;
         }
 
-        /* ---- MODAL ---- */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -338,7 +331,6 @@
             height: 24px;
         }
 
-        /* ---- BLOG ---- */
         .blog-section {
             margin-bottom: 48px;
         }
@@ -371,7 +363,6 @@
             color: #9ca3af;
         }
 
-        /* ---- RESPONSIVE ---- */
         @media (max-width: 640px) {
             .header {
                 flex-direction: column;
@@ -396,7 +387,6 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <div class="header">
         <img src="images/profile.jpg" alt="Omojire Kuseju">
         <div class="header-info">
@@ -416,12 +406,10 @@
         </div>
     </div>
 
-    <!-- ABOUT -->
     <div class="about-section">
         Computer Science student at the University of Lagos. I build deep learning systems from the ground up, deriving every gradient by hand to understand what is really going on. Most of my work lives in JAX.
     </div>
 
-    <!-- EXPERIENCE -->
     <div class="experience-section">
         <h2>Experience</h2>
         <div class="experience-item">
@@ -434,7 +422,6 @@
         </div>
     </div>
 
-    <!-- PROJECTS -->
     <div class="project-section">
         <h2>Projects</h2>
         <div class="project-grid">
@@ -512,7 +499,6 @@
         </div>
     </div>
 
-    <!-- BLOG -->
     <div class="blog-section">
         <h2>Blog</h2>
         <a href="https://ojayballer.github.io/omojire-blog/vae.html" target="_blank" class="blog-item">
@@ -521,7 +507,6 @@
         </a>
     </div>
 
-    <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
