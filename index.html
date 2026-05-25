@@ -335,6 +335,7 @@
             text-decoration: none;
             color: inherit;
             transition: border-color 0.2s;
+            margin-bottom: 10px;
         }
 
         .blog-item:hover {
@@ -415,6 +416,20 @@
         <h2>Projects</h2>
         <div class="project-grid">
 
+            <div class="project-card" onclick="openModal('sg3x')">
+                <div class="project-card-img-wrap">
+                    <img src="images/stylegan3.png" alt="sg3x">
+                    <div class="overlay-name">sg3x</div>
+                </div>
+                <div class="project-card-info">
+                    <p>Alias-free GAN that generates cat faces, built from scratch</p>
+                    <div class="project-tags">
+                        <span class="tag">JAX</span>
+                        <span class="tag orange">Generative</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card" onclick="openModal('vitrax')">
                 <div class="project-card-img-wrap">
                     <img src="images/vitrax.png" alt="vitrax">
@@ -490,8 +505,12 @@
 
     <div class="blog-section">
         <h2>Blog</h2>
+        <a href="https://ojayballer.github.io/omojire-blog/sg3x.html" target="_blank" class="blog-item">
+            <span class="blog-title">sg3x: Building an Alias-Free GAN from the Paper Up</span>
+            <span class="blog-date">May 2026</span>
+        </a>
         <a href="https://ojayballer.github.io/omojire-blog/vae.html" target="_blank" class="blog-item">
-            <span class="blog-title">Understanding the Evidence Lower Bound (ELBO)</span>
+            <span class="blog-title">Convolutional Beta VAE from Scratch in JAX</span>
             <span class="blog-date">April 2026</span>
         </a>
     </div>
@@ -511,6 +530,18 @@
 
     <script>
         const projects = {
+            sg3x: {
+                title: "sg3x",
+                date: "May 2026",
+                image: "images/stylegan3.png",
+                github: "https://github.com/ojayballer/sg3x",
+                points: [
+                    "A complete StyleGAN3-T implementation in JAX, Flax NNX, and Optax. The alias-free generator, residual discriminator, ADA augmentation pipeline, R1 regularization, EMA weight averaging, and the full training loop with bfloat16 mixed precision",
+                    "Every synthesis layer wraps its nonlinearity in an upsample, filter, activate, filter, downsample pipeline using Kaiser lowpass filters computed per layer from the equations in the paper",
+                    "Trained on 2000 AFHQv2 cat images at 128x128 on a TPU v5e-8 for 46,000 steps across three weeks. FID of 31.22",
+                    "Without adaptive discriminator augmentation the discriminator memorizes 2000 images in about 1000 steps and the generator stops learning entirely"
+                ]
+            },
             vitrax: {
                 title: "vitrax",
                 date: "April 2026",
