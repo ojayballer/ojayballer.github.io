@@ -130,6 +130,55 @@
             margin-top: 4px;
         }
 
+        .talks-section {
+            margin-bottom: 48px;
+        }
+
+        .talk-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .talk-item-inner {
+            display: flex;
+            gap: 18px;
+            padding: 16px 18px;
+            align-items: center;
+        }
+
+        .talk-thumbnail {
+            width: 180px;
+            height: 100px;
+            border-radius: 6px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .talk-info {
+            flex: 1;
+        }
+
+        .talk-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .talk-venue {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .talk-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
         .project-section {
             margin-bottom: 48px;
         }
@@ -366,6 +415,15 @@
             .project-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .talk-item-inner {
+                flex-direction: column;
+            }
+
+            .talk-thumbnail {
+                width: 100%;
+                height: 160px;
+            }
         }
 
         @media (max-width: 400px) {
@@ -409,6 +467,23 @@
             </div>
             <div class="exp-meta">University of Lagos &middot; 2026</div>
             <div class="exp-desc">Taught machine learning fundamentals through transformers to final year undergraduate students.</div>
+        </div>
+    </div>
+
+    <div class="talks-section">
+        <h2>Talks</h2>
+        <div class="talk-item">
+            <div class="talk-item-inner">
+                <img class="talk-thumbnail" src="images/ccl_talk.png" alt="AI Ethics session at CCL">
+                <div class="talk-info">
+                    <div class="talk-title">AI Ethics & Responsible AI</div>
+                    <div class="talk-venue">Consulting Club of Lagos &middot; June 2026</div>
+                    <div class="talk-tags">
+                        <span class="tag">Speaker</span>
+                        <span class="tag green">AI Ethics</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
