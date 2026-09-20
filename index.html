@@ -4,733 +4,530 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omojire Kuseju</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --text-main: #1c1917;
+            --text-muted: #57534e;
+            --text-faint: #857f79;
+            --border: #e7e5e4;
+            --border-light: #f5f5f4;
+            --link: #0969da;
+            --link-hover: #054da7;
+            --mono: 'JetBrains Mono', monospace;
+            --serif: 'Newsreader', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
 
         body {
-            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1a1a2e;
-            background: #fafafa;
-            line-height: 1.6;
-            max-width: 1100px;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--sans);
+            font-size: 15.5px;
+            line-height: 1.68;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            padding: 72px 24px 108px;
+        }
+
+        .container {
+            max-width: 740px;
             margin: 0 auto;
-            padding: 48px 24px 48px;
         }
 
-        .header {
+        a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .profile-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 28px;
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
 
-        .header img {
-            width: 130px;
-            height: 130px;
+        .profile-photo {
+            width: 104px;
+            height: 104px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #e8e8e8;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
         }
 
-        .header-info h1 {
-            font-size: 30px;
-            font-weight: 700;
+        .profile-meta h1 {
+            font-family: var(--serif);
+            font-size: 34px;
+            font-weight: 500;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
             margin-bottom: 4px;
-            color: #1a1a2e;
         }
 
-        .header-info .tagline {
+        .profile-affil {
             font-size: 15px;
-            color: #6b7280;
+            color: var(--text-muted);
             margin-bottom: 12px;
         }
 
-        .header-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .header-links a {
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .header-links a:hover {
-            color: #2563eb;
-        }
-
-        .header-links svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        .about-section {
-            margin-bottom: 48px;
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.7;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        .experience-section {
-            margin-bottom: 48px;
-        }
-
-        .experience-item {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 18px 20px;
-        }
-
-        .exp-top {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        .exp-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #2563eb;
-            flex-shrink: 0;
-        }
-
-        .exp-role {
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .exp-meta {
-            font-size: 13px;
-            color: #6b7280;
-            margin-left: 20px;
-        }
-
-        .exp-desc {
-            font-size: 14px;
-            color: #4b5563;
-            margin-left: 20px;
-            margin-top: 4px;
-        }
-
-        .talks-section {
-            margin-bottom: 48px;
-        }
-
-        .talk-item {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .talk-item-inner {
-            display: flex;
-            gap: 18px;
-            padding: 16px 18px;
-            align-items: center;
-        }
-
-        .talk-thumbnail {
-            width: 180px;
-            height: 100px;
-            border-radius: 6px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .talk-info {
-            flex: 1;
-        }
-
-        .talk-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1a1a2e;
-            margin-bottom: 4px;
-        }
-
-        .talk-venue {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 6px;
-        }
-
-        .talk-tags {
+        .profile-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 14px;
+            font-family: var(--mono);
+            font-size: 13px;
         }
 
-        .project-section {
-            margin-bottom: 48px;
+        .profile-links a {
+            color: var(--text-muted);
         }
 
-        .project-grid {
+        .profile-links a:hover {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* Bio */
+        .bio-section {
+            margin-bottom: 54px;
+        }
+
+        .bio-text {
+            font-size: 15.5px;
+            line-height: 1.72;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+
+        .bio-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section Headings */
+        section {
+            margin-bottom: 58px;
+        }
+
+        .section-title {
+            font-family: var(--mono);
+            font-size: 11.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-faint);
+            margin-bottom: 26px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Research / Project Entries */
+        .research-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .research-item {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            grid-template-columns: 184px 1fr;
+            gap: 24px;
+            align-items: flex-start;
         }
 
-        .project-card {
-            cursor: pointer;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.15s, box-shadow 0.15s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .project-card-img-wrap {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card-img-wrap img {
+        .research-preview {
             width: 100%;
-            height: 190px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            line-height: 0;
+        }
+
+        .research-preview img {
+            width: 100%;
+            height: 122px;
             object-fit: cover;
             display: block;
         }
 
-        .project-card-img-wrap .overlay-name {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 8px 12px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.65));
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        .project-card-info {
-            padding: 10px 14px 14px;
-        }
-
-        .project-card-info p {
-            font-size: 13px;
-            color: #6b7280;
-            line-height: 1.4;
-            margin-bottom: 8px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .tag {
-            font-size: 11px;
+        .research-content h3 {
+            font-family: var(--serif);
+            font-size: 20px;
             font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: #f0f4ff;
-            color: #2563eb;
-        }
-
-        .tag.green {
-            background: #ecfdf5;
-            color: #059669;
-        }
-
-        .tag.purple {
-            background: #f5f3ff;
-            color: #7c3aed;
-        }
-
-        .tag.orange {
-            background: #fff7ed;
-            color: #ea580c;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.45);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: #ffffff;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #9ca3af;
-            z-index: 10;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            color: #1a1a2e;
-        }
-
-        .modal img.modal-image {
-            width: 100%;
-            max-height: 240px;
-            object-fit: cover;
-        }
-
-        .modal-body {
-            padding: 22px 24px 8px;
-        }
-
-        .modal-body h3 {
-            font-size: 21px;
-            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-main);
             margin-bottom: 4px;
-            color: #1a1a2e;
         }
 
-        .modal-body .modal-date {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 18px;
-        }
-
-        .modal-body ul {
-            padding-left: 18px;
-            margin-bottom: 12px;
-        }
-
-        .modal-body ul li {
-            font-size: 14px;
+        .research-links {
+            font-family: var(--mono);
+            font-size: 12.5px;
             margin-bottom: 10px;
-            line-height: 1.55;
-            color: #374151;
-        }
-
-        .modal-footer {
             display: flex;
-            justify-content: flex-end;
-            gap: 14px;
-            padding: 4px 24px 20px;
+            gap: 10px;
         }
 
-        .modal-footer a {
-            color: #6b7280;
-            transition: color 0.2s;
+        .research-links a {
+            color: var(--link);
         }
 
-        .modal-footer a:hover {
-            color: #2563eb;
+        .research-desc {
+            font-size: 14.5px;
+            line-height: 1.64;
+            color: var(--text-muted);
         }
 
-        .modal-footer svg {
-            width: 24px;
-            height: 24px;
+        /* Writing */
+        .article-table {
+            display: flex;
+            flex-direction: column;
         }
 
-        .blog-section {
-            margin-bottom: 48px;
+        .article-row {
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .blog-item {
+        .article-row:last-child {
+            border-bottom: none;
+        }
+
+        .article-title {
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .article-title:hover {
+            color: var(--link);
+            text-decoration: underline;
+        }
+
+        /* Teaching */
+        .teaching-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .teaching-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .teaching-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .teaching-role {
+            font-weight: 600;
+            font-size: 15.5px;
+            color: var(--text-main);
+        }
+
+        .teaching-period {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            color: var(--text-faint);
+        }
+
+        .teaching-org {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .teaching-desc {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Systems / Engineering */
+        .systems-item {
+            font-size: 14.5px;
+            line-height: 1.62;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .systems-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .systems-title {
+            font-weight: 600;
+            color: var(--text-main);
+            font-family: var(--mono);
+            font-size: 13.5px;
+        }
+
+        .systems-links {
+            font-family: var(--mono);
+            font-size: 12px;
+            margin-right: 6px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 72px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-faint);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 16px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            text-decoration: none;
-            color: inherit;
-            transition: border-color 0.2s;
-            margin-bottom: 10px;
         }
 
-        .blog-item:hover {
-            border-color: #2563eb;
-        }
+        @media (max-width: 680px) {
+            body {
+                padding: 44px 18px 72px;
+            }
 
-        .blog-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1a1a2e;
-        }
-
-        .blog-date {
-            font-size: 13px;
-            color: #9ca3af;
-        }
-
-        @media (max-width: 640px) {
-            .header {
+            .profile-header {
                 flex-direction: column;
-                text-align: center;
+                gap: 18px;
             }
 
-            .header-links {
-                justify-content: center;
+            .research-item {
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
 
-            .project-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .talk-item-inner {
-                flex-direction: column;
-            }
-
-            .talk-thumbnail {
-                width: 100%;
+            .research-preview img {
                 height: 160px;
             }
-        }
 
-        @media (max-width: 400px) {
-            .project-grid {
-                grid-template-columns: 1fr;
+            .teaching-top {
+                flex-direction: column;
+                gap: 2px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="images/profile.jpg" alt="Omojire Kuseju">
-        <div class="header-info">
-            <h1>Omojire Kuseju</h1>
-            <p class="tagline">I love backpropagating</p>
-            <div class="header-links">
-                <a href="https://github.com/ojayballer" target="_blank" aria-label="GitHub">
-                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                </a>
-                <a href="https://linkedin.com/in/omojire-kuseju-159159357" target="_blank" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                <a href="https://x.com/ojbaby_11" target="_blank" aria-label="X">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
+    <div class="container">
+
+        <header class="profile-header">
+            <img class="profile-photo" src="images/profile.jpg" alt="Omojire Kuseju" onerror="this.style.display='none'">
+            <div class="profile-meta">
+                <h1>Omojire Kuseju</h1>
+                <p class="profile-affil">Computer Science, University of Lagos</p>
+                <div class="profile-links">
+                    <a href="https://github.com/ojayballer" target="_blank">[github]</a>
+                    <a href="https://x.com/ojbaby_11" target="_blank">[x / twitter]</a>
+                    <a href="https://linkedin.com/in/omojire-kuseju-159159357" target="_blank">[linkedin]</a>
+                </div>
             </div>
-        </div>
-    </div>
+        </header>
 
-    <div class="about-section">
-        Computer Science student at the University of Lagos. I love building things :)
-    </div>
+        <section class="bio-section">
+            <p class="bio-text">
+                I am an undergraduate researcher in Computer Science focused on machine intelligence. My work centers on world models and representation learning.
+            </p>
+            <p class="bio-text">
+                I study how autonomous agents build internal models of their environments to plan and act. My goal is to understand intelligence from first principles, exploring the scalable learning dynamics that allow systems to generalize and discover complex behavior.
+            </p>
+        </section>
 
-    <div class="experience-section">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <div class="exp-top">
-                <div class="exp-dot"></div>
-                <span class="exp-role">ML Teaching Assistant</span>
-            </div>
-            <div class="exp-meta">University of Lagos &middot; 2026</div>
-            <div class="exp-desc">Taught machine learning fundamentals through transformers to final year undergraduate students.</div>
-        </div>
-    </div>
+        <section>
+            <div class="section-title">Selected Research and Implementations</div>
+            <div class="research-list">
 
-    <div class="talks-section">
-        <h2>Talks</h2>
-        <div class="talk-item">
-            <div class="talk-item-inner">
-                <img class="talk-thumbnail" src="images/ccl_talk.png" alt="AI Ethics session at CCL">
-                <div class="talk-info">
-                    <div class="talk-title">AI Ethics & Responsible AI</div>
-                    <div class="talk-venue">Consulting Club of Lagos &middot; June 2026</div>
-                    <div class="talk-tags">
-                        <span class="tag">Speaker</span>
-                        <span class="tag green">AI Ethics</span>
+                <!-- DreamerV3 -->
+                <div class="research-item">
+                    <div class="research-preview">
+                        <img src="images/dreamerv3.gif" alt="DreamerV3 Rollout" loading="lazy">
+                    </div>
+                    <div class="research-content">
+                        <h3>DreamerV3 from Scratch in Pure JAX</h3>
+                        <div class="research-links">
+                            <a href="https://github.com/ojayballer/BeyondImagination" target="_blank">[code]</a>
+                            <a href="https://ojayballer.github.io/omojire-blog/dreamerv3.html" target="_blank">[research notes]</a>
+                        </div>
+                        <p class="research-desc">
+                            A from-scratch implementation of DreamerV3 (Hafner et al., Nature 2025) sized to the 50M parameter configuration. Solves stability challenges in model-based reinforcement learning by decoupling gradient scale from environment rewards via 255-bin symlog two-hot distributions, preventing categorical collapse with unimix policy regularization, and eliminating causal action leakage in the RSSM. Reaches a 14.76 mean return on MinAtar Breakout in 300,000 environment steps, matching distributional DQN baselines at a fraction of sample complexity. Investigated recurrent state decay across imagined rollouts, exploring gate initialization offsets to improve temporal retention.
+                        </p>
                     </div>
                 </div>
+
+                <!-- StyleGAN3 -->
+                <div class="research-item">
+                    <div class="research-preview">
+                        <img src="images/sg3x.gif" alt="sg3x generated cats" loading="lazy">
+                    </div>
+                    <div class="research-content">
+                        <h3>sg3x (Alias-Free GAN from the Paper Up)</h3>
+                        <div class="research-links">
+                            <a href="https://github.com/ojayballer/sg3x" target="_blank">[code]</a>
+                            <a href="https://ojayballer.github.io/omojire-blog/sg3x.html" target="_blank">[writeup]</a>
+                        </div>
+                        <p class="research-desc">
+                            A complete from-paper implementation of StyleGAN3-T in JAX, Flax NNX, and Optax, addressing the alias-free continuous signal representation problem. Eliminates internal texture sticking by wrapping synthesis layers in an upsample, filter, activate, filter, downsample pipeline with custom Kaiser sinc lowpass filters computed analytically per layer. Shows that without Adaptive Discriminator Augmentation (ADA), the discriminator memorizes small image distributions within 1,000 steps, starving generator gradients. Trained on 2,000 AFHQv2 cat images on a TPU v5e-8 for 46,000 steps with bfloat16 mixed precision, maintaining training stability without mode collapse.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- vitrax -->
+                <div class="research-item">
+                    <div class="research-preview">
+                        <img src="images/vitrax.png" alt="vitrax attention" loading="lazy">
+                    </div>
+                    <div class="research-content">
+                        <h3>vitrax (Vision Transformer from First Principles)</h3>
+                        <div class="research-links">
+                            <a href="https://github.com/ojayballer/vitrax" target="_blank">[code]</a>
+                        </div>
+                        <p class="research-desc">
+                            An implementation of the Vision Transformer built exclusively with jax.numpy, bypassing automatic differentiation to code the backward pass through multi-head self-attention, layer normalization, and linear projections entirely by hand. Every analytical gradient was numerically verified against finite differences to 1e-11 precision. Evaluates sample efficiency and the lack of spatial inductive bias in pure self-attention on Tiny ImageNet across 200 classes without pre-trained checkpoints.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- derivax -->
+                <div class="research-item">
+                    <div class="research-preview">
+                        <img src="images/derivax.png" alt="derivax" loading="lazy">
+                    </div>
+                    <div class="research-content">
+                        <h3>derivax (Sequence-to-Sequence for Symbolic Calculus)</h3>
+                        <div class="research-links">
+                            <a href="https://github.com/ojayballer/derivax" target="_blank">[code]</a>
+                        </div>
+                        <p class="research-desc">
+                            An encoder-decoder Transformer built in jax.numpy to investigate symbolic rule induction in autoregressive sequence models. Formulating polynomial calculus as character-level sequence-to-sequence translation, the model achieves 100% accuracy on linear polynomials and 70.3% on quadratic expressions over 100,000 pairs. Error analysis shows that attention heads learn symbolic differentiation rules cleanly, while errors on higher-degree polynomials stem from multi-digit character arithmetic under autoregressive generation.
+                        </p>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
+
+        <section>
+            <div class="section-title">Writing and Research Notes</div>
+            <div class="article-table">
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/dreamerv3.html" target="_blank" class="article-title">
+                        Beyond Imagination (DreamerV3 from Scratch)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/dreamerv2.html" target="_blank" class="article-title">
+                        Mastering Atari with Discrete World Models (DreamerV2)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/dreamer.html" target="_blank" class="article-title">
+                        Dream to Control (Learning Behaviors by Latent Imagination)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/planet.html" target="_blank" class="article-title">
+                        Deep Planning Network (PlaNet Walkthrough)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/world-models.html" target="_blank" class="article-title">
+                        Recurrent World Models (Ha and Schmidhuber Walkthrough)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/sg3x.html" target="_blank" class="article-title">
+                        Building an Alias-Free GAN from the Paper Up (StyleGAN3)
+                    </a>
+                </div>
+                <div class="article-row">
+                    <a href="https://ojayballer.github.io/omojire-blog/vae.html" target="_blank" class="article-title">
+                        Convolutional Beta-VAE from Scratch in JAX
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Teaching and Academic Leadership</div>
+            <div class="teaching-list">
+                <div class="teaching-item">
+                    <div class="teaching-top">
+                        <span class="teaching-role">Undergraduate Teaching Assistant</span>
+                        <span class="teaching-period">2026</span>
+                    </div>
+                    <div class="teaching-org">Department of Computer Science, University of Lagos</div>
+                    <p class="teaching-desc">
+                        Mentored final-year students on machine learning fundamentals and transformers, advising on model architectures, training dynamics, and empirical evaluation for their degree theses.
+                    </p>
+                </div>
+                <div class="teaching-item">
+                    <div class="teaching-top">
+                        <span class="teaching-role">Lead Instructor, Machine Learning Track</span>
+                        <span class="teaching-period">2025 - 2026</span>
+                    </div>
+                    <div class="teaching-org">Departmental Upskilling Program, University of Lagos</div>
+                    <p class="teaching-desc">
+                        Appointed by cohort peers to design and lead the machine learning curriculum for coursemates, delivering hands-on lectures on optimization, deep learning foundations, and modern implementations.
+                    </p>
+                </div>
+                <div class="teaching-item">
+                    <div class="teaching-top">
+                        <span class="teaching-role">Co-Lead, ML and AI Track</span>
+                        <span class="teaching-period">2026</span>
+                    </div>
+                    <div class="teaching-org">Consulting Club of Lagos</div>
+                    <p class="teaching-desc">
+                        Co-led the machine learning and artificial intelligence curriculum for club members, delivering technical workshops including sessions on AI ethics and responsible deployment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Systems and Engineering</div>
+            <div class="systems-item">
+                <span class="systems-title">TraceLens</span>
+                <span class="systems-links">
+                    <a href="https://github.com/ojayballer/TraceLens" target="_blank">[code]</a>
+                </span>
+                Document fraud and tampering verification pipeline for accounts payable. Combines Error Level Analysis (ELA) with fine-tuned EfficientNet-B3 on synthetic JPEG compression artifacts and ResNet-50 perceptual hashing for duplicate detection with automated payment verification. Built for Squad Hackathon.
+            </div>
+            <div class="systems-item">
+                <span class="systems-title">ECHOLOCK</span>
+                <span class="systems-links">
+                    <a href="https://github.com/ojayballer/ECHOLOCK" target="_blank">[code]</a>
+                    <a href="https://youtu.be/kLEeSNlmpAI" target="_blank">[video]</a>
+                </span>
+                Decentralized phishing detection system using federated learning and Redis Pub/Sub for privacy-preserving threat intelligence sharing across distributed nodes. Built for Cyber AI Hackathon.
+            </div>
+        </section>
+
+        <footer>
+            <span>Omojire Kuseju</span>
+        </footer>
+
     </div>
-
-    <div class="project-section">
-        <h2>Projects</h2>
-        <div class="project-grid">
-
-            <div class="project-card" onclick="openModal('sg3x')">
-                <div class="project-card-img-wrap">
-                    <img src="images/stylegan3.png" alt="sg3x">
-                    <div class="overlay-name">sg3x</div>
-                </div>
-                <div class="project-card-info">
-                    <p>Alias-free GAN that generates cat faces, built from scratch</p>
-                    <div class="project-tags">
-                        <span class="tag">JAX</span>
-                        <span class="tag orange">Generative</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="openModal('vitrax')">
-                <div class="project-card-img-wrap">
-                    <img src="images/vitrax.png" alt="vitrax">
-                    <div class="overlay-name">vitrax</div>
-                </div>
-                <div class="project-card-info">
-                    <p>Vision Transformer on Tiny ImageNet, built from first principles</p>
-                    <div class="project-tags">
-                        <span class="tag">JAX</span>
-                        <span class="tag purple">Vision</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="openModal('derivax')">
-                <div class="project-card-img-wrap">
-                    <img src="images/derivax.png" alt="derivax">
-                    <div class="overlay-name">derivax</div>
-                </div>
-                <div class="project-card-info">
-                    <p>Seq2seq Transformer for symbolic differentiation</p>
-                    <div class="project-tags">
-                        <span class="tag">JAX</span>
-                        <span class="tag green">NLP</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="openModal('bvaex')">
-                <div class="project-card-img-wrap">
-                    <img src="images/bvaex.png" alt="bvaex">
-                    <div class="overlay-name">bvaex</div>
-                </div>
-                <div class="project-card-info">
-                    <p>Convolutional VAE that generates human faces</p>
-                    <div class="project-tags">
-                        <span class="tag">JAX</span>
-                        <span class="tag orange">Generative</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="openModal('cnnx')">
-                <div class="project-card-img-wrap">
-                    <img src="images/cnnx.png" alt="cnnx">
-                    <div class="overlay-name">cnnx</div>
-                </div>
-                <div class="project-card-info">
-                    <p>CNN built from scratch using only numpy</p>
-                    <div class="project-tags">
-                        <span class="tag purple">numpy</span>
-                        <span class="tag purple">Vision</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="openModal('echolock')">
-                <div class="project-card-img-wrap">
-                    <img src="images/echolock.png" alt="ECHOLOCK">
-                    <div class="overlay-name">ECHOLOCK</div>
-                </div>
-                <div class="project-card-info">
-                    <p>Federated phishing detection with real time threat sharing</p>
-                    <div class="project-tags">
-                        <span class="tag green">Security</span>
-                        <span class="tag orange">Federated</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="blog-section">
-        <h2>Blog</h2>
-        <a href="https://ojayballer.github.io/omojire-blog/sg3x.html" target="_blank" class="blog-item">
-            <span class="blog-title">sg3x: Building an Alias-Free GAN from the Paper Up</span>
-            <span class="blog-date">May 2026</span>
-        </a>
-        <a href="https://ojayballer.github.io/omojire-blog/vae.html" target="_blank" class="blog-item">
-            <span class="blog-title">Convolutional Beta VAE from Scratch in JAX</span>
-            <span class="blog-date">April 2026</span>
-        </a>
-    </div>
-
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <img class="modal-image" id="modalImage" src="" alt="">
-            <div class="modal-body">
-                <h3 id="modalTitle"></h3>
-                <div class="modal-date" id="modalDate"></div>
-                <ul id="modalPoints"></ul>
-            </div>
-            <div class="modal-footer" id="modalFooter"></div>
-        </div>
-    </div>
-
-    <script>
-        const projects = {
-            sg3x: {
-                title: "sg3x",
-                date: "May 2026",
-                image: "images/stylegan3.png",
-                github: "https://github.com/ojayballer/sg3x",
-                points: [
-                    "A complete StyleGAN3-T implementation in JAX, Flax NNX, and Optax. The alias-free generator, residual discriminator, ADA augmentation pipeline, R1 regularization, EMA weight averaging, and the full training loop with bfloat16 mixed precision",
-                    "Every synthesis layer wraps its nonlinearity in an upsample, filter, activate, filter, downsample pipeline using Kaiser lowpass filters computed per layer from the equations in the paper",
-                    "Trained on 2000 AFHQv2 cat images at 128x128 on a TPU v5e-8 for 46,000 steps across three weeks. FID of 31.22",
-                    "Without adaptive discriminator augmentation the discriminator memorizes 2000 images in about 1000 steps and the generator stops learning entirely"
-                ]
-            },
-            vitrax: {
-                title: "vitrax",
-                date: "April 2026",
-                image: "images/vitrax.png",
-                github: "https://github.com/ojayballer/vitrax",
-                points: [
-                    "Implemented the full Vision Transformer from the Dosovitskiy et al. paper using only jax.numpy, with every gradient derived and coded by hand",
-                    "Trained on Tiny ImageNet across 200 classes and 100k images, reaching 21.84% validation accuracy without any augmentation, dropout, or learning rate scheduling",
-                    "ViTs have no built in spatial awareness like CNNs do. Every spatial relationship has to be learned purely from data, and the original paper required 300 million images to be competitive",
-                    "All gradients were numerically verified against finite differences to 1e-11 precision"
-                ]
-            },
-            derivax: {
-                title: "derivax",
-                date: "March 2026",
-                image: "images/derivax.png",
-                github: "https://github.com/ojayballer/derivax",
-                points: [
-                    "Built the full Transformer from the Vaswani et al. paper, including encoder, decoder, and cross attention, using only jax.numpy",
-                    "The model learns to differentiate polynomials by treating it as a character level sequence to sequence translation problem",
-                    "Gets 100% on linear polynomials, 70.3% on quadratic, and 34.1% on cubic. The errors come from multi digit arithmetic at the character level, not from misunderstanding the rules",
-                    "Trained on 100k synthetically generated polynomial pairs in about 2 hours"
-                ]
-            },
-            bvaex: {
-                title: "bvaex",
-                date: "February 2026",
-                image: "images/bvaex.png",
-                github: "https://github.com/ojayballer/bvaex",
-                points: [
-                    "A Convolutional Beta VAE that learns to reconstruct and generate human faces, trained on 200k CelebA images",
-                    "Every layer including Conv2D, TransposedConv2D, Dense, the reparameterization trick, and the Adam optimizer are all implemented from scratch with manual backpropagation",
-                    "Generates novel faces by sampling from the learned latent space, with smooth interpolation between face attributes",
-                    "Trained for 100 epochs using a from scratch implementation of the ELBO loss"
-                ]
-            },
-            cnnx: {
-                title: "cnnx",
-                date: "December 2025",
-                image: "images/cnnx.png",
-                github: "https://github.com/ojayballer/cnnx",
-                points: [
-                    "A full CNN with convolution, pooling, dense layers, and softmax, all built from scratch using only numpy",
-                    "Reached 95.77% accuracy on MNIST while training on just 10% of the dataset",
-                    "Comes with a dedicated THEORY.md that walks through the math and architecture with worked examples",
-                    "This was the first from scratch project and the one that started the whole series"
-                ]
-            },
-            echolock: {
-                title: "ECHOLOCK",
-                date: "2025",
-                image: "images/echolock.png",
-                github: "https://github.com/ojayballer/ECHOLOCK",
-                youtube: "https://youtu.be/kLEeSNlmpAI?si=7bXKgptkL3kh1aG_",
-                points: [
-                    "A decentralized phishing detection system that uses Federated Learning so no raw data ever leaves individual nodes",
-                    "Reaches 91% detection accuracy with inference latency under 200ms",
-                    "Nodes share threat intelligence in real time through Redis Pub/Sub without exposing private data",
-                    "Built for the Cyber AI Hackathon 2025 as the sole backend contributor"
-                ]
-            }
-        };
-
-        const githubSvg = '<svg viewBox="0 0 16 16" fill="currentColor" width="24" height="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
-
-        const youtubeSvg = '<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>';
-
-        function openModal(key) {
-            const p = projects[key];
-            document.getElementById('modalImage').src = p.image;
-            document.getElementById('modalTitle').textContent = p.title;
-            document.getElementById('modalDate').textContent = p.date;
-
-            const ul = document.getElementById('modalPoints');
-            ul.innerHTML = '';
-            p.points.forEach(pt => {
-                const li = document.createElement('li');
-                li.textContent = pt;
-                ul.appendChild(li);
-            });
-
-            const footer = document.getElementById('modalFooter');
-            footer.innerHTML = '';
-
-            if (p.youtube) {
-                const ytLink = document.createElement('a');
-                ytLink.href = p.youtube;
-                ytLink.target = '_blank';
-                ytLink.setAttribute('aria-label', 'YouTube');
-                ytLink.innerHTML = youtubeSvg;
-                footer.appendChild(ytLink);
-            }
-
-            const ghLink = document.createElement('a');
-            ghLink.href = p.github;
-            ghLink.target = '_blank';
-            ghLink.setAttribute('aria-label', 'GitHub');
-            ghLink.innerHTML = githubSvg;
-            footer.appendChild(ghLink);
-
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(e) {
-            if (e && e.target !== e.currentTarget) return;
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
-    </script>
 
 </body>
 </html>
