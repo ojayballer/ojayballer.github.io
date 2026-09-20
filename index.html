@@ -169,6 +169,44 @@
             display: block;
         }
 
+        .dual-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: transparent;
+            border: none;
+            overflow: visible;
+        }
+
+        .preview-figure {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .preview-frame {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            line-height: 0;
+        }
+
+        .preview-frame img {
+            width: 100%;
+            height: 96px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .preview-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-faint);
+            line-height: 1.2;
+        }
+
         .research-content h3 {
             font-family: var(--serif);
             font-size: 20px;
@@ -321,6 +359,16 @@
                 height: 160px;
             }
 
+            .dual-preview {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .dual-preview .preview-frame img {
+                height: 110px;
+            }
+
             .teaching-top {
                 flex-direction: column;
                 gap: 2px;
@@ -360,8 +408,19 @@
 
                 <!-- DreamerV3 -->
                 <div class="research-item">
-                    <div class="research-preview">
-                        <img src="images/dreamerv3.gif" alt="DreamerV3 Rollout" loading="lazy">
+                    <div class="research-preview dual-preview">
+                        <div class="preview-figure">
+                            <div class="preview-frame">
+                                <img src="images/crafter_sharp.gif" alt="Crafter rollout" loading="lazy">
+                            </div>
+                            <span class="preview-label">crafter</span>
+                        </div>
+                        <div class="preview-figure">
+                            <div class="preview-frame">
+                                <img src="images/dreamerv3.gif" alt="MinAtar Breakout rollout" loading="lazy">
+                            </div>
+                            <span class="preview-label">minatar breakout</span>
+                        </div>
                     </div>
                     <div class="research-content">
                         <h3>DreamerV3 from Scratch in Pure JAX</h3>
@@ -370,7 +429,7 @@
                             <a href="https://ojayballer.github.io/omojire-blog/dreamerv3.html" target="_blank">[research notes]</a>
                         </div>
                         <p class="research-desc">
-                            A from-scratch implementation of DreamerV3 (Hafner et al., Nature 2025) sized to the 50M parameter configuration. Solves stability challenges in model-based reinforcement learning by decoupling gradient scale from environment rewards via 255-bin symlog two-hot distributions, preventing categorical collapse with unimix policy regularization, and eliminating causal action leakage in the RSSM. Reaches a 14.76 mean return on MinAtar Breakout in 300,000 environment steps, matching distributional DQN baselines at a fraction of sample complexity. Investigated recurrent state decay across imagined rollouts, exploring gate initialization offsets to improve temporal retention.
+                            A from-scratch implementation of DreamerV3 (Hafner et al., Nature 2025) sized to the 50M parameter configuration. Solves stability challenges in model-based reinforcement learning by decoupling gradient scale from environment rewards via 255-bin symlog two-hot distributions, preventing categorical collapse with unimix policy regularization, and eliminating causal action leakage in the RSSM. Evaluated across open-world exploration in Crafter and fast visual control on MinAtar Breakout, where it reaches a 14.76 mean return in 300,000 environment steps. Investigated recurrent state decay across imagined rollouts, exploring gate initialization offsets to improve temporal retention.
                         </p>
                     </div>
                 </div>
